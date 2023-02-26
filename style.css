@@ -28,9 +28,27 @@ html {
  --whitesmoke: #2d2e2d;
 }
 
+@media (prefers-color-scheme : light) {
+ :root {
+  --main-colour: #4bbf87;
+  --black: black;
+  --white: white;
+  --whitesmoke: whitesmoke;
+ }
+}
+
+@media (prefers-color-scheme : dark) {
+ :root {
+  --black: white;
+  --white: black;
+  --whitesmoke-color: #2d2e2d;
+ }
+}
+
 .maincolor {
  color: var(--main-colour);
 }
+
 .progress {
  position: fixed;
  top: 0;
@@ -62,6 +80,7 @@ html {
  font-weight: 900;
  left: 90%;
 }
+
 nav {
  background-color: var(--main-colour);
  height: 7rem;
@@ -96,10 +115,16 @@ nav ul li a {
 nav ul li a:hover {
  color: var(--white);
 }
-#img_mode{
+
+#img_mode {
  height: 2.5rem;
  width: 2.5rem;
  border-radius: 50%;
+}
+
+main {
+ overflow-y: scroll;
+ scroll-snap-type: y mandatory;
 }
 
 .img_box {
@@ -113,7 +138,7 @@ nav ul li a:hover {
 .img_box .down_mypic {
  position: relative;
  font-size: 2rem;
- top: 9.5rem;
+ top: 12rem;
 }
 
 .box1 {
@@ -153,7 +178,7 @@ nav ul li a:hover {
 
 .down_mypic #contactbtn a {
  color: var(--white);
- font-size: 1.8rem;
+ font-size: 1.6rem;
  text-decoration: none;
 }
 
@@ -166,7 +191,8 @@ nav ul li a:hover {
  border-radius: .4rem;
  transition: .2s ease;
 }
-.down_mypic #contactbtn:hover{
+
+.down_mypic #contactbtn:hover {
  background-color: var(--main-colour);
 }
 
@@ -175,6 +201,7 @@ section {
  width: 100vw;
  background-color: var(--whitesmoke);
  border-bottom: .5rem solid white;
+ scroll-snap-align: start;
 }
 
 /* about section code */
@@ -189,9 +216,14 @@ section {
 }
 
 #about .about_section .about_left {
- border: 20px solid yellow;
+ border: .2rem solid var(--black);
  width: 20%;
  margin-left: 8rem;
+ transition: .3s ease;
+ object-fit: contain;
+}
+#about .about_section .about_left:hover{
+ border-color: var(--main-colour);
 }
 
 #about .about_section .about_left img {
@@ -224,6 +256,17 @@ section {
  margin: .5rem;
 }
 
+#about #mycv {
+ background-color: var(--black);
+ padding: .4rem;
+ color: var(--white);
+ transition: .15s ease;
+}
+
+#about #mycv:hover {
+ background-color: var(--main-colour);
+}
+
 /* Service section code */
 .service_div,
 .service_div2 {
@@ -240,11 +283,27 @@ section {
  height: 32vh;
  margin: 1rem;
 }
-.service_div2 .more{
+
+.service_div2 .more {
  display: flex;
  align-items: center;
  justify-content: center;
  font-size: 2rem;
+}
+.project_img{
+ border: 1px solid gray;
+ height: 80%;
+ width: 95%;
+ margin: 0 2.5%;
+}
+.project_img img{
+ height: 100%;
+ width: 100%;
+ overflow: hidden;
+}
+.project_discription p{
+ text-align: center;
+ font-size: 1.4rem;
 }
 /* skill section */
 .skill {
@@ -260,7 +319,7 @@ section {
 .column-right {
  /* width: 35rem; */
  width: 40%;
- margin: 3rem 5%;
+ margin: 2rem 5%;
  height: 22rem;
  padding: 2rem;
  background-color: var(--white);
@@ -422,7 +481,7 @@ section {
 
 .contactform h2 {
  font-size: 1.5rem;
- color: var(--main-colour);
+ color: var(--black);
  font-weight: 500;
 }
 
@@ -439,7 +498,7 @@ section {
  font-size: 1.5rem;
  margin: 1rem 0;
  border: none;
- border-bottom: .1rem solid var(--black);
+ border-bottom: .1rem solid #727372;
  outline: none;
  resize: none;
  background-color: var(--white);
@@ -453,7 +512,7 @@ section {
  margin: 1rem 0;
  pointer-events: none;
  transition: 0.5s;
- color: var(--black);
+ color: #727372;
 }
 
 .contactform .inputbox input:focus~span,
@@ -468,16 +527,30 @@ section {
 .contactform .inputbox input[type="submit"] {
  width: 10rem;
  background: var(--main-colour);
- color: black;
+ color: var(--black);
  border: none;
  cursor: pointer;
  padding: 1rem;
  font-size: 1.5rem;
 }
-.contactform:hover{
-  border: .2rem solid var(--main-colour);
-  color: black;
+
+.contactform:hover {
+ border: .2rem solid var(--main-colour);
 }
+
+.contactform:hover h2 {
+ color: var(--main-colour);
+}
+
+.contactform:hover .inputbox span {
+ color: var(--black);
+}
+
+.contactform:hover .inputbox input,
+textarea {
+ border-bottom-color: var(--black);
+}
+
 footer {
  text-align: center;
  height: 5rem;
@@ -486,13 +559,18 @@ footer {
  background-color: var(--white);
 }
 
-@media(max-width: 998px){
- html{
+@media(max-width: 998px) {
+ html {
   font-size: 55%;
  }
 }
-@media(max-width: 760px){
- html{
+
+@media(max-width: 760px) {
+ html {
   font-size: 45%;
+ }
+
+ nav ul li {
+  display: none;
  }
 }

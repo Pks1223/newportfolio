@@ -15,9 +15,9 @@
 
 <body>
  <header>
-   <div class="progress">
-    <span class="bar"></span>
-   </div>
+  <div class="progress">
+   <span class="bar"></span>
+  </div>
   <nav>
    <img class="logo" src="logo.jpg" alt="">
    <ul>
@@ -27,8 +27,10 @@
     <li><a href="#project">Pojects</a></li>
     <li><a href="#blogs">Blogs</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><img id="img_mode" src="dark1.jpg" alt="Dark mode"></li>
-   <li><div id="change_color">Colour</div></li>
+    <!--<li><img id="img_mode" src="dark1.jpg" alt="Dark mode"></li>-->
+    <li>
+     <div id="change_color">Colour</div>
+    </li>
    </ul>
   </nav>
  </header>
@@ -36,7 +38,7 @@
   <section id="home">
    <div class="img_box">
     <div class="box1">
-     <img src="mypic.jpeg" alt="img.jpg">
+     <img src="my_pic_1.jpg" alt="img.jpg">
     </div>
     <div class="down_mypic">
      <p>I'm <span class="maincolor">Praween Soni</span></p>
@@ -67,7 +69,7 @@
        </div>
        <div class="flex">
         <span class="maincolor">Experence :</span>
-        <p>1 Year</p>
+        <p>1 year</p>
        </div>
        <div class="flex">
         <span class="maincolor">Freelance : </span>
@@ -78,6 +80,9 @@
        <div class="flex">
         <span class="maincolor">Language : </span>
         <p>Hindi / English</p>
+       </div>
+       <div class="flex">
+        <span><a id="mycv" href="">Download CV</a></span>
        </div>
       </div>
      </div>
@@ -149,8 +154,10 @@
       </div>
       <div class="line cpp"></div>
      </div>
-     <div>
-      <a href="">more</a>
+     <div class="bars">
+      <div class="info">
+       <a href="#">More..</a>
+      </div>
      </div>
     </div>
    </div>
@@ -158,7 +165,14 @@
   <section id="project">
    <p class="heading">MY <span class="maincolor">PROJECT</span></p>
    <div class="service_div">
-    <div class="Small_div"></div>
+    <div class="Small_div">
+     <div class="project_img">
+      <img src="todo img.png" alt="todo img.png">
+     </div>
+     <div class="project_discription">
+      <p>My Tolo list project.</p>
+     </div>
+    </div>
     <div class="Small_div"></div>
     <div class="Small_div"></div>
    </div>
@@ -205,7 +219,7 @@
      </div>
     </div>
     <div class="contactform">
-     <form>
+     <form action="connection.php" method="POST">
       <h2>Send message</h2>
       <div class="inputbox">
        <input type="text" name="" required="required">
@@ -221,6 +235,7 @@
       </div>
       <div class="inputbox">
        <input type="submit" name="" value="send">
+       <!-- <button type="submit">Send</button> -->
       </div>
      </form>
     </div>
